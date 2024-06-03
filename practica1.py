@@ -5,6 +5,8 @@
 # Consigna: Implementar los siguientes metodos
 
 import sys
+from practica2 import *
+from practica3 import *
 
 def lee_grafo_stdin(grafo):
 
@@ -16,7 +18,9 @@ def lee_grafo_stdin(grafo):
         tupla[0].append(grafo[x])
 
     for y in range (vert + 1, len(grafo)):
-        tupla[1].append(grafo[y])
+        elem1 = grafo [y] [0]
+        elem2 = grafo [y] [2]
+        tupla[1].append((elem1, elem2))
 
     return tupla
 
@@ -86,6 +90,11 @@ def main ():
     grafo = lee_entrada_1()
     print (grafo)
     print(lee_grafo_stdin(grafo))
+    print(cuenta_grado(lee_grafo_stdin(grafo)))
+    print(vertice_aislado(lee_grafo_stdin(grafo)))
+    print(componentes_conexas(lee_grafo_stdin(grafo)))
+    print(es_conexo(lee_grafo_stdin(grafo)))
+    print(valida_nodo_en_grafo(lee_grafo_stdin(grafo), 'a'))
 
 if __name__ == '__main__':
         main()
